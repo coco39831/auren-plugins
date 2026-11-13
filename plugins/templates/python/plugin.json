@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "id": "example.echo",
+  "name": "回傳文字範本",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "以最少程式展示標準輸入、輸出與錯誤處理，不含人格提示或外部連線。",
+  "author": "請填寫作者",
+  "license": "請填寫授權條款",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "portable"
+    ],
+    "access": "brokered"
+  },
+  "exports": [
+    {
+      "id": "echo",
+      "kind": "tool",
+      "contract": "example.echo/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "name": "原樣回傳一段文字",
+      "description": "把你提供的文字原樣回傳，適合確認插件是否能正常呼叫。",
+      "features": [
+        "不會連上外部服務",
+        "不會改寫文字內容"
+      ]
+    }
+  ],
+  "requires": [],
+  "dependencies": [],
+  "permissions": [],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

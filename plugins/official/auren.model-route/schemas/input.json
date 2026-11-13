@@ -1,0 +1,1 @@
+{"type": "object", "additionalProperties": false, "required": ["messages", "connections", "primary_model_id"], "properties": {"messages": {"type": "array", "items": {"type": "object"}}, "connections": {"type": "array", "items": {"type": "object"}}, "primary_model_id": {}}}

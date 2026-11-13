@@ -1,0 +1,23 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "model_options",
+      "effective_model",
+      "model_configured",
+      "model",
+      "_model_connections",
+      "model_connections",
+      "_model_input",
+      "_model_signature",
+      "discover_model_connection",
+      "configure_model",
+      "select_primary_model",
+      "disable_model",
+      "global_settings",
+      "setup_status"
+    ]
+  },
+  "integration_required": true
+}

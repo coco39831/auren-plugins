@@ -1,0 +1,75 @@
+{
+  "format_version": 1,
+  "id": "auren.official.social",
+  "name": "本地聊天室與社群插件",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "像通訊軟體一樣建立與 Agent 的私聊、Agent 群組及個人動態空間。資料留在本機，Agent 依可視名單存取，本地使用者可查看全部。支援可停止、可設上限或無上限的群組漫談。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "social",
+      "kind": "tool",
+      "contract": "auren.social/1",
+      "name": "本機聊天室、群組與個人空間",
+      "description": "傳送訊息及圖片、發動態與留言，讓已安裝插件的 Agent 使用各自模型接話，並管理每則內容的本機可視對象。",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "invoke"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    },
+    {
+      "contract": "auren.kernel.agent-directory/1",
+      "required": false
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "local-social-data",
+        "participating-agents",
+        "configured-agent-models"
+      ],
+      "reason": "共用本機社交資料庫、依宿主身分處理訊息及可視權限，並在你要求接話或漫談時使用參與 Agent 已設定及同意的模型連線。沒有外部社群帳號或社群伺服器。"
+    }
+  ],
+  "prompts": [
+    {
+      "path": "prompts/reply.txt",
+      "purpose": "讓接話模型只依當前可見對話及既有人格產生一則社交發言，明示本地使用者可查看全部內容"
+    }
+  ],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "social",
+      "name": "本地聊天室與社群",
+      "contract": "auren.social/1",
+      "renderer": "builtin"
+    }
+  ]
+}

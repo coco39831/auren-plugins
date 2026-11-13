@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "configure",
+      "configure_model",
+      "delegate",
+      "delegated",
+      "delegations",
+      "model_panel",
+      "panel",
+      "service"
+    ]
+  },
+  "integration_required": true
+}

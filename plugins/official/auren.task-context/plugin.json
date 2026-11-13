@@ -1,0 +1,91 @@
+{
+  "format_version": 1,
+  "id": "auren.official.task-context",
+  "name": "官方 task-context",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 task-context 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.task-context/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "_apply_failure",
+        "activate",
+        "apply_failure",
+        "attempt",
+        "confirm_failure",
+        "diagnose_conflicts",
+        "fit",
+        "handoffs",
+        "handover",
+        "infer",
+        "infer_decision",
+        "key",
+        "maintenance",
+        "messages",
+        "packet",
+        "parent",
+        "parent_state",
+        "pause",
+        "persist_diagnosis",
+        "prepare_procedure",
+        "read",
+        "remember",
+        "save_attempt",
+        "save_parent",
+        "step_evidence",
+        "summarize",
+        "summary",
+        "terminal"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    },
+    {
+      "contract": "auren.kernel.context-quota/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [
+    {
+      "path": "src/task_context_prompts.py",
+      "purpose": "此能力實際使用的提示詞常數，可查閱與隨插件版本替換。"
+    }
+  ],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "attach_history",
+      "authorize",
+      "begin_workflow",
+      "create_task",
+      "evidence",
+      "health",
+      "record_evidence",
+      "record_task_event",
+      "require_completion",
+      "save_workflow",
+      "seal_workflow",
+      "search_tasks",
+      "status",
+      "stop",
+      "task_history",
+      "watch_workflow",
+      "workflow",
+      "workflow_revision"
+    ]
+  },
+  "integration_required": true
+}

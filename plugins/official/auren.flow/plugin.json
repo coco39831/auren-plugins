@@ -1,0 +1,87 @@
+{
+  "format_version": 1,
+  "id": "auren.official.flow",
+  "name": "官方任務流程",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "六個可替換任務流程能力，預設延續官方任務服務。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "intake",
+      "kind": "provider",
+      "contract": "auren.flow.intake/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/intake.json",
+      "facade": false
+    },
+    {
+      "id": "plan",
+      "kind": "provider",
+      "contract": "auren.flow.plan/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/plan.json",
+      "facade": false
+    },
+    {
+      "id": "step_context",
+      "kind": "provider",
+      "contract": "auren.flow.step_context/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/step_context.json",
+      "facade": false
+    },
+    {
+      "id": "knowledge_gate",
+      "kind": "provider",
+      "contract": "auren.flow.knowledge_gate/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/knowledge_gate.json",
+      "facade": false
+    },
+    {
+      "id": "acceptance",
+      "kind": "provider",
+      "contract": "auren.flow.acceptance/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/acceptance.json",
+      "facade": false
+    },
+    {
+      "id": "replan",
+      "kind": "provider",
+      "contract": "auren.flow.replan/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/replan.json",
+      "facade": false
+    }
+  ],
+  "requires": [],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方模型流程提供者。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

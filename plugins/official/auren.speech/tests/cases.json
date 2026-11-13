@@ -1,0 +1,1 @@
+{"format_version": 1, "kind": "native-service", "exports": {"speech": ["invoke", "setup_status"]}, "integration_required": true}

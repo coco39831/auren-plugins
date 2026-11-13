@@ -1,0 +1,27 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "activity",
+      "adapter",
+      "configure",
+      "configure_user",
+      "grant_network",
+      "job",
+      "next_roaming_at",
+      "precondition",
+      "public_state",
+      "reader",
+      "schedule",
+      "search",
+      "start",
+      "state",
+      "stop_active",
+      "task_roam",
+      "task_web",
+      "tick"
+    ]
+  },
+  "integration_required": true
+}

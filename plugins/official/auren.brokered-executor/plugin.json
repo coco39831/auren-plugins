@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "id": "auren.official.brokered-executor",
+  "name": "選配隔離執行器",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "使用已實測的 WSL 隔離環境執行 Python 套件，不是基本安裝前置條件。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.executor.brokered/1",
+      "methods": [
+        "invoke_package"
+      ],
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.components/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方模型流程提供者。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

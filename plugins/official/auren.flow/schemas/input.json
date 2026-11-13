@@ -1,0 +1,1 @@
+{"type": "object", "required": ["version", "payload"], "additionalProperties": false, "properties": {"version": {"type": "integer", "enum": [1]}, "payload": {"type": "object"}}}

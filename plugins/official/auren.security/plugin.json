@@ -1,0 +1,63 @@
+{
+  "format_version": 1,
+  "id": "auren.official.security",
+  "name": "官方 security",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 security 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.security/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "case_references",
+        "has_incident",
+        "health",
+        "record_incident",
+        "status"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.vault/1",
+      "required": true
+    },
+    {
+      "contract": "auren.license/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

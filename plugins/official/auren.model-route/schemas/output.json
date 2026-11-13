@@ -1,0 +1,1 @@
+{"type": "object", "additionalProperties": false, "required": ["connection_ref"], "properties": {"connection_ref": {"type": "string", "minLength": 1}}}

@@ -1,0 +1,80 @@
+{
+  "format_version": 1,
+  "id": "auren.official.permission",
+  "name": "官方 permission",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 permission 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.permission/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "attach_history",
+        "authorize",
+        "begin_workflow",
+        "create_task",
+        "evidence",
+        "health",
+        "record_evidence",
+        "record_task_event",
+        "require_completion",
+        "save_workflow",
+        "seal_workflow",
+        "search_tasks",
+        "status",
+        "stop",
+        "task_history",
+        "watch_workflow",
+        "workflow",
+        "workflow_revision"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.events/1",
+      "required": true
+    },
+    {
+      "contract": "auren.kernel.vault/1",
+      "required": true
+    },
+    {
+      "contract": "auren.memory/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

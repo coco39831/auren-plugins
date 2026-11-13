@@ -1,0 +1,1 @@
+{"type": "object", "additionalProperties": false, "required": ["messages", "route"], "properties": {"messages": {"type": "array", "items": {"type": "object"}}, "route": {"type": "object", "additionalProperties": false, "required": ["connection_ref"], "properties": {"connection_ref": {"type": "string", "minLength": 1}}}}}

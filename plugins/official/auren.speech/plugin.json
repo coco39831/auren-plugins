@@ -1,0 +1,72 @@
+{
+  "format_version": 1,
+  "id": "auren.official.speech",
+  "name": "語音轉文字插件",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "錄製短語音或選擇音訊檔案，轉成可編輯、複製及下載的文字。使用你設定的語音辨識 API 或本機相容服務，不附帶大型模型。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "speech",
+      "kind": "provider",
+      "contract": "auren.speech.transcribe/1",
+      "name": "把說話轉成文字",
+      "description": "手動錄音或選檔後轉寫，先預覽文字，不會自行發送聊天訊息。",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "invoke",
+        "setup_status"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.vault/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "microphone-audio",
+        "configured-speech-service",
+        "agent-data"
+      ],
+      "reason": "讀取使用者選擇的音訊、連線到已確認的語音服務，並加密保存此 Agent 的連線設定；不在背景錄音。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "speech",
+      "name": "語音轉文字",
+      "contract": "auren.speech.transcribe/1",
+      "renderer": "builtin"
+    }
+  ],
+  "setup": {
+    "instructions": "先設定支援音訊轉寫的 API 基底位址、模型與金鑰；本機相容服務也可使用。外部連線需明確同意傳送音訊。",
+    "status_contract": "auren.speech.transcribe/1",
+    "blocks_tasks": false
+  }
+}

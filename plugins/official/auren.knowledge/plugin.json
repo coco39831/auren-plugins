@@ -1,0 +1,71 @@
+{
+  "format_version": 1,
+  "id": "auren.official.knowledge",
+  "name": "官方 knowledge",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 knowledge 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.knowledge/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "add_knowledge",
+        "delete_knowledge",
+        "delete_tool",
+        "get_tool",
+        "health",
+        "overview",
+        "retrieve",
+        "status"
+      ]
+    }
+  ],
+  "requires": [],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "knowledge",
+      "name": "知識庫",
+      "contract": "auren.knowledge/1",
+      "renderer": "builtin"
+    },
+    {
+      "id": "tools",
+      "name": "工具庫",
+      "contract": "auren.knowledge/1",
+      "renderer": "builtin"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "format_version": 1,
+  "id": "auren.official.task-workflow",
+  "name": "官方 task-workflow",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 task-workflow 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.task-workflow/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "_context",
+        "_lookup",
+        "accept_outline",
+        "answer",
+        "ask",
+        "background_plan",
+        "begin",
+        "bind",
+        "block",
+        "clarify",
+        "context",
+        "current",
+        "ensure_receipt",
+        "exhausted",
+        "feedback",
+        "finish",
+        "finish_background",
+        "intake_context",
+        "invalidate",
+        "learn",
+        "lookup",
+        "offer",
+        "outline",
+        "permit_decision",
+        "prepare",
+        "receipt",
+        "record",
+        "request_clarification",
+        "save",
+        "state",
+        "step_complete",
+        "subtasks"
+      ]
+    },
+    {
+      "id": "replay",
+      "kind": "provider",
+      "contract": "auren.flow.replay/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "tasks",
+        "run_task",
+        "_run_task",
+        "report"
+      ],
+      "facade": false
+    },
+    {
+      "id": "validation",
+      "kind": "provider",
+      "contract": "auren.flow.validation/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "history",
+        "evaluate"
+      ],
+      "facade": false
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [
+    {
+      "path": "src/task_prompts.py",
+      "purpose": "此能力實際使用的提示詞常數，可查閱與隨插件版本替換。"
+    },
+    {
+      "path": "src/flow_replay.py",
+      "purpose": "歷史比較或品質驗證使用的指令與條件"
+    },
+    {
+      "path": "src/flow_validation.py",
+      "purpose": "歷史比較或品質驗證使用的指令與條件"
+    }
+  ],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "tasks",
+      "name": "任務歷史",
+      "contract": "auren.task-workflow/1",
+      "renderer": "builtin"
+    },
+    {
+      "id": "todo",
+      "name": "待辦",
+      "contract": "auren.task-workflow/1",
+      "renderer": "builtin"
+    }
+  ]
+}

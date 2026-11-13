@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Auren Skill 可執行流程 v1",
+  "type": "object", "additionalProperties": false,
+  "required": ["format_version", "id", "nodes", "result"],
+  "properties": {
+    "format_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_.-]{0,63}$"},
+    "nodes": {
+      "type": "array", "minItems": 1, "maxItems": 128,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "call", "needs", "required", "arguments"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9_-]{0,63}$"},
+          "call": {"type": "string", "pattern": "^[a-z][a-z0-9_.-]+/[1-9][0-9]*$"},
+          "needs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "required": {"type": "boolean"},
+          "arguments": {"type": "object", "additionalProperties": {"$ref": "#/$defs/binding"}},
+          "when": {"type": "object", "additionalProperties": false, "required": ["value", "equals"], "properties": {"value": {"$ref": "#/$defs/binding"}, "equals": {}}}
+        }
+      }
+    },
+    "result": {"$ref": "#/$defs/binding"}
+  },
+  "$defs": {
+    "binding": {"oneOf": [
+      {"type": "object", "additionalProperties": false, "required": ["literal"], "properties": {"literal": {}}},
+      {"type": "object", "additionalProperties": false, "required": ["source", "pointer"], "properties": {"source": {"type": "string", "pattern": "^(input|nodes\\.[a-z][a-z0-9_-]*\\.output)$"}, "pointer": {"type": "string", "pattern": "^(/([^~]|~[01])*)*$"}}}
+    ]}
+  }
+}

@@ -1,0 +1,875 @@
+{
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "operation"
+      ],
+      "properties": {
+        "operation": {
+          "const": "bootstrap"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation"
+      ],
+      "properties": {
+        "operation": {
+          "const": "profile.get"
+        },
+        "principal": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "display_name",
+        "revision"
+      ],
+      "properties": {
+        "operation": {
+          "const": "profile.update"
+        },
+        "display_name": {
+          "type": "string",
+          "maxLength": 60
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "principal": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "bio": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation"
+      ],
+      "properties": {
+        "operation": {
+          "const": "room.list"
+        },
+        "query": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "include_archived": {
+          "type": "boolean"
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "kind",
+        "members"
+      ],
+      "properties": {
+        "operation": {
+          "const": "room.create"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "maxItems": 200,
+          "uniqueItems": true
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "direct",
+            "group"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "room.get"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "before": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id",
+        "revision"
+      ],
+      "properties": {
+        "operation": {
+          "const": "room.update"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "maxItems": 200,
+          "uniqueItems": true
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id",
+        "archived"
+      ],
+      "properties": {
+        "operation": {
+          "const": "room.archive"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "archived": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "room.read"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "room",
+        "request_id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "message.send"
+        },
+        "room": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "image": {
+          "type": "object",
+          "required": [
+            "mime",
+            "data"
+          ],
+          "properties": {
+            "mime": {
+              "type": "string",
+              "enum": [
+                "image/png",
+                "image/jpeg",
+                "image/webp"
+              ]
+            },
+            "data": {
+              "type": "string",
+              "maxLength": 700000
+            }
+          },
+          "additionalProperties": false
+        },
+        "mentions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "maxItems": 200,
+          "uniqueItems": true
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        },
+        "auto_reply": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id",
+        "revision"
+      ],
+      "properties": {
+        "operation": {
+          "const": "message.update"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "message.withdraw"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "room",
+        "target"
+      ],
+      "properties": {
+        "operation": {
+          "const": "reply.request"
+        },
+        "room": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "target": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "message_id": {
+          "type": "string",
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "reply.cancel"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "room",
+        "confirmed"
+      ],
+      "properties": {
+        "operation": {
+          "const": "auto.start"
+        },
+        "room": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "confirmed": {
+          "type": "boolean"
+        },
+        "unlimited": {
+          "type": "boolean"
+        },
+        "turn_limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "room"
+      ],
+      "properties": {
+        "operation": {
+          "const": "auto.stop"
+        },
+        "room": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation"
+      ],
+      "properties": {
+        "operation": {
+          "const": "post.list"
+        },
+        "principal": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "query": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "request_id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "post.create"
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "image": {
+          "type": "object",
+          "required": [
+            "mime",
+            "data"
+          ],
+          "properties": {
+            "mime": {
+              "type": "string",
+              "enum": [
+                "image/png",
+                "image/jpeg",
+                "image/webp"
+              ]
+            },
+            "data": {
+              "type": "string",
+              "maxLength": 700000
+            }
+          },
+          "additionalProperties": false
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "post.get"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id",
+        "revision"
+      ],
+      "properties": {
+        "operation": {
+          "const": "post.update"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "audience": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private",
+                "selected"
+              ]
+            },
+            "principals": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 100
+              },
+              "maxItems": 200,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "post.withdraw"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "post",
+        "text",
+        "request_id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "comment.add"
+        },
+        "post": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id"
+      ],
+      "properties": {
+        "operation": {
+          "const": "comment.withdraw"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id",
+        "kind",
+        "liked"
+      ],
+      "properties": {
+        "operation": {
+          "const": "reaction.set"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "liked": {
+          "type": "boolean"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "message",
+            "post"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "id",
+        "kind"
+      ],
+      "properties": {
+        "operation": {
+          "const": "asset.get"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "message",
+            "post"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "operation",
+        "room"
+      ],
+      "properties": {
+        "operation": {
+          "const": "activity.list"
+        },
+        "room": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

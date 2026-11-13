@@ -1,0 +1,1443 @@
+{
+  "format_version": 1,
+  "repository": "coco39831/auren-plugins",
+  "snapshot": "2026-11-13.1",
+  "plugin_count": 30,
+  "payments_implemented": false,
+  "automatic_remote_install_implemented": false,
+  "requires_matching_auren_client": true,
+  "plugins": [
+    {
+      "id": "auren.official.application",
+      "name": "任務協作插件",
+      "description": "可替換的 application 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.application/1"
+      ],
+      "builtin_pages": [
+        "chat"
+      ],
+      "source_path": "plugins/official/auren.application",
+      "package_path": "packages/2026-11-13.1/auren.official.application-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.application-1.0.0.auren-plugin",
+      "sha256": "e5ece8625de1e212615def24ffec2cf60db5927938fc3e4582552cdf785ae8b6",
+      "bytes": 16218,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.brokered-executor",
+      "name": "隔離執行插件",
+      "description": "使用已實測的 WSL 隔離環境執行 Python 套件，不是基本安裝前置條件。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.components/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型流程提供者。"
+        }
+      ],
+      "contracts": [
+        "auren.executor.brokered/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.brokered-executor",
+      "package_path": "packages/2026-11-13.1/auren.official.brokered-executor-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.brokered-executor-1.0.0.auren-plugin",
+      "sha256": "468acc53b59aa442de1e60a6e5eb306215d356f58dddff25b5f0ffc822da9798",
+      "bytes": 2315,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.components",
+      "name": "功能開關與授權插件",
+      "description": "可替換的 components 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.components/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.components",
+      "package_path": "packages/2026-11-13.1/auren.official.components-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.components-1.0.0.auren-plugin",
+      "sha256": "9b7fc728ef78b22755b1cd16028d61c9c93b1577aba6f151c6192961bd2ca573",
+      "bytes": 10281,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.configuration",
+      "name": "Agent 設定插件",
+      "description": "可替換的 configuration 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.configuration/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.configuration",
+      "package_path": "packages/2026-11-13.1/auren.official.configuration-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.configuration-1.0.0.auren-plugin",
+      "sha256": "15dd6ef0a226322fda776d001cb956995e4dbd18aa7bc3c3aa3f0c15887c9db0",
+      "bytes": 3743,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.diary",
+      "name": "日記插件",
+      "description": "閱讀、搜尋及整理這個 Agent 留下的日記；沿用原本的本機記憶儲存。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.memory/1",
+          "required": true
+        },
+        {
+          "contract": "auren.license/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "透過記憶服務讀寫此 Agent 的日記，不另建或搬動資料庫。"
+        }
+      ],
+      "contracts": [
+        "auren.diary/1"
+      ],
+      "builtin_pages": [
+        "diary"
+      ],
+      "source_path": "plugins/official/auren.diary",
+      "package_path": "packages/2026-11-13.1/auren.official.diary-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.diary-1.0.0.auren-plugin",
+      "sha256": "37f3fac56410c1d05a23f7248132b38c841e8ffce9fc904dc2dcf41d0b3cd841",
+      "bytes": 3921,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.emotion",
+      "name": "情感表演插件",
+      "description": "可替換的 emotion 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        },
+        {
+          "contract": "auren.license/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.emotion/1"
+      ],
+      "builtin_pages": [
+        "emotion"
+      ],
+      "source_path": "plugins/official/auren.emotion",
+      "package_path": "packages/2026-11-13.1/auren.official.emotion-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.emotion-1.0.0.auren-plugin",
+      "sha256": "cca1c02960d5ffdec972a85e8498bf7a61630d7f0e4053faad3f66811c3188a0",
+      "bytes": 2950,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.flow",
+      "name": "任務規劃與驗收插件",
+      "description": "六個可替換任務流程能力，預設延續官方任務服務。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型流程提供者。"
+        }
+      ],
+      "contracts": [
+        "auren.flow.intake/1",
+        "auren.flow.plan/1",
+        "auren.flow.step_context/1",
+        "auren.flow.knowledge_gate/1",
+        "auren.flow.acceptance/1",
+        "auren.flow.replan/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.flow",
+      "package_path": "packages/2026-11-13.1/auren.official.flow-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.flow-1.0.0.auren-plugin",
+      "sha256": "e39708bccd6ff4d7e54700d26d1b1f3eebce3d12e0414f67e2807c91a5c897fa",
+      "bytes": 3367,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.infra",
+      "name": "工具執行與資料搬移插件",
+      "description": "可替換的 infra 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.infra/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.infra",
+      "package_path": "packages/2026-11-13.1/auren.official.infra-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.infra-1.0.0.auren-plugin",
+      "sha256": "f7709c3e2a7234323444724b736e1c316eef89c265c312be98b5c0f7d9b7075c",
+      "bytes": 2381,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.knowledge",
+      "name": "知識與工具庫插件",
+      "description": "可替換的 knowledge 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.knowledge/1"
+      ],
+      "builtin_pages": [
+        "knowledge",
+        "tools"
+      ],
+      "source_path": "plugins/official/auren.knowledge",
+      "package_path": "packages/2026-11-13.1/auren.official.knowledge-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.knowledge-1.0.0.auren-plugin",
+      "sha256": "592fda3989b736cdac828fc0fa435fff3971edc535a2a025578a208f05c201ae",
+      "bytes": 2702,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.learning",
+      "name": "知識學習插件",
+      "description": "可替換的 learning 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.events/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        },
+        {
+          "contract": "auren.permission/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.learning/1"
+      ],
+      "builtin_pages": [
+        "learning"
+      ],
+      "source_path": "plugins/official/auren.learning",
+      "package_path": "packages/2026-11-13.1/auren.official.learning-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.learning-1.0.0.auren-plugin",
+      "sha256": "b019507fff0481076a39b7baf145a4566f75b92aaebdd2a8d9279a582d3f0c9d",
+      "bytes": 2822,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.license",
+      "name": "產品授權插件",
+      "description": "可替換的 license 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.device-license/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.license/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.license",
+      "package_path": "packages/2026-11-13.1/auren.official.license-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.license-1.0.0.auren-plugin",
+      "sha256": "8c7e5f76a0ba98e40f4eaee82d41f3749287a4d131061099306e3e94df5255a7",
+      "bytes": 2472,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.memory",
+      "name": "長期記憶插件",
+      "description": "可替換的 memory 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.events/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.memory/1"
+      ],
+      "builtin_pages": [
+        "memory",
+        "user"
+      ],
+      "source_path": "plugins/official/auren.memory",
+      "package_path": "packages/2026-11-13.1/auren.official.memory-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.memory-1.0.0.auren-plugin",
+      "sha256": "c660b2d0812c50cd3908d18dc2b182ecec960201d5065a090adc9adcbd0fb243",
+      "bytes": 2592,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.memory-context",
+      "name": "記憶回想插件",
+      "description": "Agent 模型呼叫必經的可替換能力。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.memory/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型流程提供者。"
+        }
+      ],
+      "contracts": [
+        "auren.memory.context/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.memory-context",
+      "package_path": "packages/2026-11-13.1/auren.official.memory-context-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.memory-context-1.0.0.auren-plugin",
+      "sha256": "d9fdf2c4cdf584f280d70108de6fef90895c3b393e6583bd5f4adc033a70af5f",
+      "bytes": 2699,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.model-pipeline",
+      "name": "回覆準備流程插件",
+      "description": "強制記憶上下文、思考及已授權模型路由。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "declarative",
+        "entrypoint": "workflows/main.json",
+        "platforms": [
+          "portable"
+        ],
+        "access": "brokered"
+      },
+      "requires": [
+        {
+          "contract": "auren.memory.context/1",
+          "required": true
+        },
+        {
+          "contract": "auren.reasoning.prepare/1",
+          "required": true
+        },
+        {
+          "contract": "auren.model.route/1",
+          "required": true
+        },
+        {
+          "contract": "auren.model.request/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [],
+      "contracts": [
+        "auren.model.pipeline/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.model-pipeline",
+      "package_path": "packages/2026-11-13.1/auren.official.model-pipeline-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.model-pipeline-1.0.0.auren-plugin",
+      "sha256": "89e4f1c8cc4b6a279cecde12fcaeac4ad3d9d2d201506dd342cc9e108800eb6c",
+      "bytes": 2595,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.model-request",
+      "name": "模型請求整理插件",
+      "description": "將 Skill 的思考結果及路由結果組成正式模型請求。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型請求組裝器。"
+        }
+      ],
+      "contracts": [
+        "auren.model.request/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.model-request",
+      "package_path": "packages/2026-11-13.1/auren.official.model-request-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.model-request-1.0.0.auren-plugin",
+      "sha256": "44602ed1b10670ddc43368a25f6a7430d94ee815708191ca584273b1316d0833",
+      "bytes": 2245,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.model-route",
+      "name": "主要模型選用插件",
+      "description": "Agent 模型呼叫必經的可替換能力。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型流程提供者。"
+        }
+      ],
+      "contracts": [
+        "auren.model.route/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.model-route",
+      "package_path": "packages/2026-11-13.1/auren.official.model-route-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.model-route-1.0.0.auren-plugin",
+      "sha256": "ff7ccb573f5a0622d0fc25fef712626befae5b760e1ab715049787ac614f36e1",
+      "bytes": 2367,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.models",
+      "name": "模型連線插件",
+      "description": "可替換的 models 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.models/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.models",
+      "package_path": "packages/2026-11-13.1/auren.official.models-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.models-1.0.0.auren-plugin",
+      "sha256": "4dd313e924c28e507c3574afb485abc1ab83b51e145e4ae96d0e9f62dda2d425",
+      "bytes": 7659,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.permission",
+      "name": "操作授權與約定插件",
+      "description": "可替換的 permission 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.events/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        },
+        {
+          "contract": "auren.memory/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.permission/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.permission",
+      "package_path": "packages/2026-11-13.1/auren.official.permission-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.permission-1.0.0.auren-plugin",
+      "sha256": "ea97e262af870d923a191c687559d9fd73a5ca8470162a869d89788cfd8970bd",
+      "bytes": 2715,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.personality",
+      "name": "人格塑造與成長插件",
+      "description": "整合虛空、種子、模板與模仿四種人格起點，承接問答、人格期待與後續成長。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        },
+        {
+          "contract": "auren.emotion/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.personality/1",
+        "auren.growth/1",
+        "auren.personality-dialogue/1",
+        "auren.personality-shaping/1",
+        "auren.personality-reasoning/1",
+        "auren.seed-interview/1"
+      ],
+      "builtin_pages": [
+        "persona"
+      ],
+      "source_path": "plugins/official/auren.personality",
+      "package_path": "packages/2026-11-13.1/auren.official.personality-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.personality-1.0.0.auren-plugin",
+      "sha256": "803c959a9222bef6a227a989221c46e002d0267190148d62f08034c091f97153",
+      "bytes": 25537,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.plugins",
+      "name": "工具製作與管理插件",
+      "description": "可替換的 plugins 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.plugins/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.plugins",
+      "package_path": "packages/2026-11-13.1/auren.official.plugins-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.plugins-1.0.0.auren-plugin",
+      "sha256": "957d00dac7745b6711aa5232748b1887d9b02982628e88e341fc2da1d8bea1e7",
+      "bytes": 9866,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.reasoning",
+      "name": "思考準備插件",
+      "description": "Agent 模型呼叫必經的可替換能力。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型流程提供者。"
+        }
+      ],
+      "contracts": [
+        "auren.reasoning.prepare/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.reasoning",
+      "package_path": "packages/2026-11-13.1/auren.official.reasoning-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.reasoning-1.0.0.auren-plugin",
+      "sha256": "3ab0b7d2d2c840562faa06ade3138b536f087abd6a662a68eadbfa220ebeb3ca",
+      "bytes": 2273,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.roaming",
+      "name": "網路搜尋與漫遊插件",
+      "description": "可替換的 roaming 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.roaming/1"
+      ],
+      "builtin_pages": [
+        "roaming"
+      ],
+      "source_path": "plugins/official/auren.roaming",
+      "package_path": "packages/2026-11-13.1/auren.official.roaming-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.roaming-1.0.0.auren-plugin",
+      "sha256": "fda13b2c3dedfd57b2667c369dbd49b7ea641c34d65c02b6dd2e37d967291795",
+      "bytes": 11049,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.security",
+      "name": "人工事件追蹤插件",
+      "description": "可替換的 security 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        },
+        {
+          "contract": "auren.license/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.security/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.security",
+      "package_path": "packages/2026-11-13.1/auren.official.security-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.security-1.0.0.auren-plugin",
+      "sha256": "962e7ad79536e2b638968fcbbf1603c9851d21c96043f96a7762da537903f0b2",
+      "bytes": 2642,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.selfmod",
+      "name": "自我改進插件",
+      "description": "可替換的 selfmod 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.gate/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.versions/1",
+          "required": true
+        },
+        {
+          "contract": "auren.license/1",
+          "required": true
+        },
+        {
+          "contract": "auren.permission/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.selfmod/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.selfmod",
+      "package_path": "packages/2026-11-13.1/auren.official.selfmod-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.selfmod-1.0.0.auren-plugin",
+      "sha256": "f39a727c7139cd028cdcc801d0f61dac794015fe667f5908a004e4d60c02c8c0",
+      "bytes": 2502,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.sharing",
+      "name": "Agent 資料共享插件",
+      "description": "沿用既有資料、對話與授權語意的可替換服務。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.agent-directory/1",
+          "required": false
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方模型流程提供者。"
+        }
+      ],
+      "contracts": [
+        "auren.sharing/1"
+      ],
+      "builtin_pages": [
+        "sharing"
+      ],
+      "source_path": "plugins/official/auren.sharing",
+      "package_path": "packages/2026-11-13.1/auren.official.sharing-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.sharing-1.0.0.auren-plugin",
+      "sha256": "7c8d12912f74134179bea5ce3fcf5024ef70dc30470dcfed8717e5db8e54be4c",
+      "bytes": 5227,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.social",
+      "name": "本地聊天室與社群插件",
+      "description": "像通訊軟體一樣建立與 Agent 的私聊、Agent 群組及個人動態空間。資料留在本機，Agent 依可視名單存取，本地使用者可查看全部。支援可停止、可設上限或無上限的群組漫談。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.agent-directory/1",
+          "required": false
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "local-social-data",
+            "participating-agents",
+            "configured-agent-models"
+          ],
+          "reason": "共用本機社交資料庫、依宿主身分處理訊息及可視權限，並在你要求接話或漫談時使用參與 Agent 已設定及同意的模型連線。沒有外部社群帳號或社群伺服器。"
+        }
+      ],
+      "contracts": [
+        "auren.social/1"
+      ],
+      "builtin_pages": [
+        "social"
+      ],
+      "source_path": "plugins/official/auren.social",
+      "package_path": "packages/2026-11-13.1/auren.official.social-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.social-1.0.0.auren-plugin",
+      "sha256": "b705f0906515e5eeaa3cd1fc6a0f293959becbee7783489e3a8c55f298c43a63",
+      "bytes": 22489,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.speech",
+      "name": "語音轉文字插件",
+      "description": "錄製短語音或選擇音訊檔案，轉成可編輯、複製及下載的文字。使用你設定的語音辨識 API 或本機相容服務，不附帶大型模型。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": true,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.vault/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "microphone-audio",
+            "configured-speech-service",
+            "agent-data"
+          ],
+          "reason": "讀取使用者選擇的音訊、連線到已確認的語音服務，並加密保存此 Agent 的連線設定；不在背景錄音。"
+        }
+      ],
+      "contracts": [
+        "auren.speech.transcribe/1"
+      ],
+      "builtin_pages": [
+        "speech"
+      ],
+      "source_path": "plugins/official/auren.speech",
+      "package_path": "packages/2026-11-13.1/auren.official.speech-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.speech-1.0.0.auren-plugin",
+      "sha256": "ce80944f6aa06d33794c56e5c1e88e00b497db53619d57c7b0f9b67f191a7068",
+      "bytes": 6381,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.task-context",
+      "name": "子任務記憶與交接插件",
+      "description": "可替換的 task-context 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        },
+        {
+          "contract": "auren.kernel.context-quota/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.task-context/1"
+      ],
+      "builtin_pages": [],
+      "source_path": "plugins/official/auren.task-context",
+      "package_path": "packages/2026-11-13.1/auren.official.task-context-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.task-context-1.0.0.auren-plugin",
+      "sha256": "fffd5e1c8002666727f57ccbf265852ed51d3e61142fb9fa14eeac9c5e02a8bd",
+      "bytes": 17028,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.task-workflow",
+      "name": "任務執行與驗收插件",
+      "description": "可替換的 task-workflow 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.task-workflow/1",
+        "auren.flow.replay/1",
+        "auren.flow.validation/1"
+      ],
+      "builtin_pages": [
+        "tasks",
+        "todo"
+      ],
+      "source_path": "plugins/official/auren.task-workflow",
+      "package_path": "packages/2026-11-13.1/auren.official.task-workflow-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.task-workflow-1.0.0.auren-plugin",
+      "sha256": "5ab89fca96162cd9947cdef5d211b4a3e90b876a0aa985ece1db24793b5ab33b",
+      "bytes": 31322,
+      "distribution": "official-bundled"
+    },
+    {
+      "id": "auren.official.views",
+      "name": "狀態面板插件",
+      "description": "可替換的 views 能力，保留原有資料與操作語意。",
+      "version": "1.0.0",
+      "license": "Proprietary",
+      "source_visibility": "public",
+      "optional": false,
+      "host_api": 1,
+      "runtime": {
+        "kind": "python",
+        "entrypoint": "src/main.py",
+        "platforms": [
+          "windows-x64"
+        ],
+        "access": "native",
+        "transport": "factory"
+      },
+      "requires": [
+        {
+          "contract": "auren.kernel.application/1",
+          "required": true
+        }
+      ],
+      "dependencies": [],
+      "permissions": [
+        {
+          "capability": "host.native",
+          "resources": [
+            "agent-data"
+          ],
+          "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+        }
+      ],
+      "contracts": [
+        "auren.views/1"
+      ],
+      "builtin_pages": [
+        "overview"
+      ],
+      "source_path": "plugins/official/auren.views",
+      "package_path": "packages/2026-11-13.1/auren.official.views-1.0.0.auren-plugin",
+      "download_url": "https://raw.githubusercontent.com/coco39831/auren-plugins/main/packages/2026-11-13.1/auren.official.views-1.0.0.auren-plugin",
+      "sha256": "b33a1e7201c9793de703ba047d4d6a02e3978a22a6d6f3f8722e46bfc0c695a0",
+      "bytes": 6929,
+      "distribution": "official-bundled"
+    }
+  ]
+}

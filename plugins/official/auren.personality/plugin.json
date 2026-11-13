@@ -1,0 +1,179 @@
+{
+  "format_version": 1,
+  "id": "auren.official.personality",
+  "name": "人格塑造與成長插件",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "整合虛空、種子、模板與模仿四種人格起點，承接問答、人格期待與後續成長。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "personality",
+      "kind": "provider",
+      "contract": "auren.personality/1",
+      "input_schema": "schemas/personality-input.json",
+      "output_schema": "schemas/personality-output.json",
+      "facade": false,
+      "methods": [
+        "state",
+        "initialize",
+        "set_growth",
+        "setup_status"
+      ]
+    },
+    {
+      "id": "growth",
+      "kind": "provider",
+      "contract": "auren.growth/1",
+      "input_schema": "schemas/growth-input.json",
+      "output_schema": "schemas/growth-output.json",
+      "facade": false,
+      "methods": [
+        "apply",
+        "reflect"
+      ]
+    },
+    {
+      "id": "personality-dialogue",
+      "kind": "provider",
+      "contract": "auren.personality-dialogue/1",
+      "input_schema": "schemas/personality-dialogue-input.json",
+      "output_schema": "schemas/personality-dialogue-output.json",
+      "facade": false,
+      "methods": [
+        "add_message",
+        "after_task",
+        "ask",
+        "bind_task",
+        "checked",
+        "messages",
+        "open",
+        "receive"
+      ]
+    },
+    {
+      "id": "personality-shaping",
+      "kind": "provider",
+      "contract": "auren.personality-shaping/1",
+      "input_schema": "schemas/personality-shaping-input.json",
+      "output_schema": "schemas/personality-shaping-output.json",
+      "facade": false,
+      "methods": [
+        "append_question",
+        "candidate",
+        "context",
+        "conversation",
+        "idle",
+        "open",
+        "question",
+        "require",
+        "result",
+        "status",
+        "submit",
+        "switch"
+      ]
+    },
+    {
+      "id": "personality-reasoning",
+      "kind": "provider",
+      "contract": "auren.personality-reasoning/1",
+      "input_schema": "schemas/personality-reasoning-input.json",
+      "output_schema": "schemas/personality-reasoning-output.json",
+      "facade": false,
+      "methods": [
+        "_closure",
+        "_explanation",
+        "_load",
+        "_save",
+        "context",
+        "delivered",
+        "prepare",
+        "previous",
+        "record",
+        "snapshot",
+        "source",
+        "validate"
+      ]
+    },
+    {
+      "id": "seed-interview",
+      "kind": "provider",
+      "contract": "auren.seed-interview/1",
+      "input_schema": "schemas/seed-interview-input.json",
+      "output_schema": "schemas/seed-interview-output.json",
+      "methods": [
+        "load",
+        "save",
+        "public",
+        "ask",
+        "start",
+        "answer",
+        "claim",
+        "cancel"
+      ],
+      "facade": false
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    },
+    {
+      "contract": "auren.emotion/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [
+    {
+      "path": "src/personality_prompts.py",
+      "purpose": "此能力實際使用的提示詞常數，可查閱與隨插件版本替換。"
+    },
+    {
+      "path": "src/shaping_prompts.py",
+      "purpose": "此能力實際使用的提示詞常數，可查閱與隨插件版本替換。"
+    },
+    {
+      "path": "src/seed_interview.py",
+      "purpose": "建立前訪談的指令組裝與素材邊界"
+    }
+  ],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "persona",
+      "name": "人格樣貌與成長",
+      "contract": "auren.personality/1",
+      "renderer": "builtin"
+    }
+  ],
+  "setup": {
+    "instructions": "請選擇虛空、種子、模板或模仿模式，確認這個 Agent 的人格起點。",
+    "status_contract": "auren.personality/1"
+  }
+}

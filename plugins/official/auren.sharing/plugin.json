@@ -1,0 +1,74 @@
+{
+  "format_version": 1,
+  "id": "auren.official.sharing",
+  "name": "官方Agent 共享",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "沿用既有資料、對話與授權語意的可替換服務。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.sharing/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "links",
+        "save",
+        "status",
+        "configure",
+        "source",
+        "read",
+        "write",
+        "context"
+      ],
+      "facade": false
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    },
+    {
+      "contract": "auren.kernel.agent-directory/1",
+      "required": false
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方模型流程提供者。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "sharing",
+      "name": "共享資料設定",
+      "contract": "auren.sharing/1",
+      "renderer": "builtin"
+    }
+  ]
+}

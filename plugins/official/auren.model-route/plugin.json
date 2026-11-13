@@ -1,0 +1,47 @@
+{
+  "format_version": 1,
+  "id": "auren.official.model-route",
+  "name": "官方 model-route",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "Agent 模型呼叫必經的可替換能力。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "prepare",
+      "kind": "provider",
+      "contract": "auren.model.route/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false
+    }
+  ],
+  "requires": [],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方模型流程提供者。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

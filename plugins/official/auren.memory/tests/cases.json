@@ -1,0 +1,19 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "append",
+      "archive",
+      "decode_context",
+      "encode_context",
+      "health",
+      "page",
+      "read",
+      "search",
+      "status",
+      "task_messages"
+    ]
+  },
+  "integration_required": true
+}

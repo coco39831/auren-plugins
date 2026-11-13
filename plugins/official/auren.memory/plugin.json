@@ -1,0 +1,82 @@
+{
+  "format_version": 1,
+  "id": "auren.official.memory",
+  "name": "官方 memory",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 memory 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.memory/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "append",
+        "archive",
+        "decode_context",
+        "encode_context",
+        "health",
+        "page",
+        "read",
+        "search",
+        "status",
+        "task_messages"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.events/1",
+      "required": true
+    },
+    {
+      "contract": "auren.kernel.vault/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "memory",
+      "name": "長期記憶",
+      "contract": "auren.memory/1",
+      "renderer": "builtin"
+    },
+    {
+      "id": "user",
+      "name": "我記得的事",
+      "contract": "auren.memory/1",
+      "renderer": "builtin"
+    }
+  ]
+}

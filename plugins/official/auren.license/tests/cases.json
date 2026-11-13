@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "capability_available",
+      "check_device",
+      "health",
+      "local_features",
+      "owns_consent",
+      "set_local_feature",
+      "status",
+      "verify_capability"
+    ]
+  },
+  "integration_required": true
+}

@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "auren.official.application",
+  "name": "官方 application",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 application 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.application/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "initialize",
+        "_initialize_modules",
+        "_persona_dependency",
+        "_verify_developer",
+        "manual_gate",
+        "set_developer",
+        "_admit_rule",
+        "_license_transport",
+        "_upload_event",
+        "_validate_claim",
+        "require_activated",
+        "conversations",
+        "_save_conversations",
+        "create_conversation",
+        "conversation",
+        "archive_conversation",
+        "send_message",
+        "create_agent_task",
+        "_agent_job",
+        "execute_tool",
+        "panel",
+        "resume_agent_task",
+        "tick",
+        "_archive_memory",
+        "_pause_agent_service",
+        "sync_management",
+        "_apply_management_command",
+        "quiesce",
+        "snapshot",
+        "begin_shutdown",
+        "close"
+      ],
+      "facade": true
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [
+    {
+      "path": "src/main.py",
+      "purpose": "既有任務執行器的系統指令、動作契約與上下文組裝；內容未額外新增人格預設。"
+    }
+  ],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "chat",
+      "name": "聊天",
+      "contract": "auren.application/1",
+      "renderer": "builtin"
+    }
+  ]
+}

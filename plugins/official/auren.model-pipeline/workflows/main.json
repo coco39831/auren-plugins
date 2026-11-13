@@ -1,0 +1,77 @@
+{
+  "format_version": 1,
+  "id": "model-request",
+  "nodes": [
+    {
+      "id": "memory",
+      "call": "auren.memory.context/1",
+      "needs": [],
+      "required": true,
+      "arguments": {
+        "messages": {
+          "source": "input",
+          "pointer": "/messages"
+        }
+      }
+    },
+    {
+      "id": "reasoning",
+      "call": "auren.reasoning.prepare/1",
+      "needs": [
+        "memory"
+      ],
+      "required": true,
+      "arguments": {
+        "messages": {
+          "source": "nodes.memory.output",
+          "pointer": "/messages"
+        }
+      }
+    },
+    {
+      "id": "route",
+      "call": "auren.model.route/1",
+      "needs": [
+        "reasoning"
+      ],
+      "required": true,
+      "arguments": {
+        "messages": {
+          "source": "nodes.reasoning.output",
+          "pointer": "/messages"
+        },
+        "connections": {
+          "source": "input",
+          "pointer": "/connections"
+        },
+        "primary_model_id": {
+          "source": "input",
+          "pointer": "/primary_model_id"
+        }
+      }
+    },
+    {
+      "id": "assemble",
+      "call": "auren.model.request/1",
+      "needs": [
+        "reasoning",
+        "route"
+      ],
+      "required": true,
+      "arguments": {
+        "messages": {
+          "source": "nodes.reasoning.output",
+          "pointer": "/messages"
+        },
+        "route": {
+          "source": "nodes.route.output",
+          "pointer": ""
+        }
+      }
+    }
+  ],
+  "result": {
+    "source": "nodes.assemble.output",
+    "pointer": ""
+  }
+}

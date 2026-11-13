@@ -1,0 +1,51 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "_context",
+      "_lookup",
+      "accept_outline",
+      "answer",
+      "ask",
+      "background_plan",
+      "begin",
+      "bind",
+      "block",
+      "clarify",
+      "context",
+      "current",
+      "ensure_receipt",
+      "exhausted",
+      "feedback",
+      "finish",
+      "finish_background",
+      "intake_context",
+      "invalidate",
+      "learn",
+      "lookup",
+      "offer",
+      "outline",
+      "permit_decision",
+      "prepare",
+      "receipt",
+      "record",
+      "request_clarification",
+      "save",
+      "state",
+      "step_complete",
+      "subtasks"
+    ],
+    "replay": [
+      "tasks",
+      "run_task",
+      "_run_task",
+      "report"
+    ],
+    "validation": [
+      "history",
+      "evaluate"
+    ]
+  },
+  "integration_required": true
+}

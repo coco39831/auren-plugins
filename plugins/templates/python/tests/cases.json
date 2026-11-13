@@ -1,0 +1,4 @@
+[
+  {"export":"echo","input":{"text":"你好"},"expected":{"text":"你好"}},
+  {"export":"echo","input":{"text":""},"expected":{"text":""}}
+]

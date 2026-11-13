@@ -1,0 +1,99 @@
+{
+  "format_version": 1,
+  "id": "auren.official.emotion",
+  "name": "官方 emotion",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 emotion 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.emotion/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "archive_profile",
+        "can_revisit_personality",
+        "commit_shaping",
+        "create_identity",
+        "expression",
+        "grow_toward_expectation",
+        "health",
+        "identity",
+        "on_event",
+        "personality_dialogue",
+        "personality_expectation",
+        "personality_goal",
+        "prepare_shaping",
+        "profile_versions",
+        "profiles",
+        "remember_personality_goal",
+        "require_shaping",
+        "research_guidance",
+        "research_state",
+        "restore_profile",
+        "save_personality_dialogue",
+        "save_profile",
+        "select_profile",
+        "set_growth",
+        "shaping_prepared",
+        "shaping_session",
+        "status",
+        "trauma_control",
+        "trauma_event",
+        "trauma_panel",
+        "trauma_state",
+        "creation_templates",
+        "register_identity"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.vault/1",
+      "required": true
+    },
+    {
+      "contract": "auren.license/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "emotion",
+      "name": "情感近況",
+      "contract": "auren.emotion/1",
+      "renderer": "builtin"
+    }
+  ]
+}

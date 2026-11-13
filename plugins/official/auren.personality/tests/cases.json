@@ -1,0 +1,65 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "personality": [
+      "state",
+      "initialize",
+      "set_growth",
+      "setup_status"
+    ],
+    "growth": [
+      "apply",
+      "reflect"
+    ],
+    "personality-dialogue": [
+      "add_message",
+      "after_task",
+      "ask",
+      "bind_task",
+      "checked",
+      "messages",
+      "open",
+      "receive"
+    ],
+    "personality-shaping": [
+      "append_question",
+      "candidate",
+      "context",
+      "conversation",
+      "idle",
+      "open",
+      "question",
+      "require",
+      "result",
+      "status",
+      "submit",
+      "switch"
+    ],
+    "personality-reasoning": [
+      "_closure",
+      "_explanation",
+      "_load",
+      "_save",
+      "context",
+      "delivered",
+      "prepare",
+      "previous",
+      "record",
+      "snapshot",
+      "source",
+      "validate"
+    ],
+    "seed-interview": [
+      "load",
+      "save",
+      "public",
+      "ask",
+      "start",
+      "answer",
+      "claim",
+      "cancel"
+    ]
+  },
+  "integration_required": true
+}

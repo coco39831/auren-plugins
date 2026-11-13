@@ -1,0 +1,58 @@
+{
+  "format_version": 1,
+  "id": "auren.official.model-pipeline",
+  "name": "模型呼叫 Skill",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "強制記憶上下文、思考及已授權模型路由。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "declarative",
+    "entrypoint": "workflows/main.json",
+    "platforms": [
+      "portable"
+    ],
+    "access": "brokered"
+  },
+  "exports": [
+    {
+      "id": "prepare",
+      "kind": "workflow",
+      "contract": "auren.model.pipeline/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.memory.context/1",
+      "required": true
+    },
+    {
+      "contract": "auren.reasoning.prepare/1",
+      "required": true
+    },
+    {
+      "contract": "auren.model.route/1",
+      "required": true
+    },
+    {
+      "contract": "auren.model.request/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "SKILL.md",
+  "tests": "tests/cases.json",
+  "workflows": [
+    "workflows/main.json"
+  ]
+}

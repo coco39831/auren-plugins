@@ -1,0 +1,291 @@
+{
+  "format_version": 1,
+  "official_plugins": [
+    {
+      "id": "auren.official.application",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.application-1.0.0.auren-plugin",
+      "sha256": "e5ece8625de1e212615def24ffec2cf60db5927938fc3e4582552cdf785ae8b6",
+      "contracts": [
+        "auren.application/1"
+      ]
+    },
+    {
+      "id": "auren.official.brokered-executor",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.brokered-executor-1.0.0.auren-plugin",
+      "sha256": "468acc53b59aa442de1e60a6e5eb306215d356f58dddff25b5f0ffc822da9798",
+      "contracts": [
+        "auren.executor.brokered/1"
+      ]
+    },
+    {
+      "id": "auren.official.components",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.components-1.0.0.auren-plugin",
+      "sha256": "9b7fc728ef78b22755b1cd16028d61c9c93b1577aba6f151c6192961bd2ca573",
+      "contracts": [
+        "auren.components/1"
+      ]
+    },
+    {
+      "id": "auren.official.configuration",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.configuration-1.0.0.auren-plugin",
+      "sha256": "15dd6ef0a226322fda776d001cb956995e4dbd18aa7bc3c3aa3f0c15887c9db0",
+      "contracts": [
+        "auren.configuration/1"
+      ]
+    },
+    {
+      "id": "auren.official.diary",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.diary-1.0.0.auren-plugin",
+      "sha256": "37f3fac56410c1d05a23f7248132b38c841e8ffce9fc904dc2dcf41d0b3cd841",
+      "contracts": [
+        "auren.diary/1"
+      ]
+    },
+    {
+      "id": "auren.official.emotion",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.emotion-1.0.0.auren-plugin",
+      "sha256": "cca1c02960d5ffdec972a85e8498bf7a61630d7f0e4053faad3f66811c3188a0",
+      "contracts": [
+        "auren.emotion/1"
+      ]
+    },
+    {
+      "id": "auren.official.flow",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.flow-1.0.0.auren-plugin",
+      "sha256": "e39708bccd6ff4d7e54700d26d1b1f3eebce3d12e0414f67e2807c91a5c897fa",
+      "contracts": [
+        "auren.flow.intake/1",
+        "auren.flow.plan/1",
+        "auren.flow.step_context/1",
+        "auren.flow.knowledge_gate/1",
+        "auren.flow.acceptance/1",
+        "auren.flow.replan/1"
+      ]
+    },
+    {
+      "id": "auren.official.infra",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.infra-1.0.0.auren-plugin",
+      "sha256": "f7709c3e2a7234323444724b736e1c316eef89c265c312be98b5c0f7d9b7075c",
+      "contracts": [
+        "auren.infra/1"
+      ]
+    },
+    {
+      "id": "auren.official.knowledge",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.knowledge-1.0.0.auren-plugin",
+      "sha256": "592fda3989b736cdac828fc0fa435fff3971edc535a2a025578a208f05c201ae",
+      "contracts": [
+        "auren.knowledge/1"
+      ]
+    },
+    {
+      "id": "auren.official.learning",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.learning-1.0.0.auren-plugin",
+      "sha256": "b019507fff0481076a39b7baf145a4566f75b92aaebdd2a8d9279a582d3f0c9d",
+      "contracts": [
+        "auren.learning/1"
+      ]
+    },
+    {
+      "id": "auren.official.license",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.license-1.0.0.auren-plugin",
+      "sha256": "8c7e5f76a0ba98e40f4eaee82d41f3749287a4d131061099306e3e94df5255a7",
+      "contracts": [
+        "auren.license/1"
+      ]
+    },
+    {
+      "id": "auren.official.memory",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.memory-1.0.0.auren-plugin",
+      "sha256": "c660b2d0812c50cd3908d18dc2b182ecec960201d5065a090adc9adcbd0fb243",
+      "contracts": [
+        "auren.memory/1"
+      ]
+    },
+    {
+      "id": "auren.official.memory-context",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.memory-context-1.0.0.auren-plugin",
+      "sha256": "d9fdf2c4cdf584f280d70108de6fef90895c3b393e6583bd5f4adc033a70af5f",
+      "contracts": [
+        "auren.memory.context/1"
+      ]
+    },
+    {
+      "id": "auren.official.model-pipeline",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.model-pipeline-1.0.0.auren-plugin",
+      "sha256": "89e4f1c8cc4b6a279cecde12fcaeac4ad3d9d2d201506dd342cc9e108800eb6c",
+      "contracts": [
+        "auren.model.pipeline/1"
+      ]
+    },
+    {
+      "id": "auren.official.model-request",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.model-request-1.0.0.auren-plugin",
+      "sha256": "44602ed1b10670ddc43368a25f6a7430d94ee815708191ca584273b1316d0833",
+      "contracts": [
+        "auren.model.request/1"
+      ]
+    },
+    {
+      "id": "auren.official.model-route",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.model-route-1.0.0.auren-plugin",
+      "sha256": "ff7ccb573f5a0622d0fc25fef712626befae5b760e1ab715049787ac614f36e1",
+      "contracts": [
+        "auren.model.route/1"
+      ]
+    },
+    {
+      "id": "auren.official.models",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.models-1.0.0.auren-plugin",
+      "sha256": "4dd313e924c28e507c3574afb485abc1ab83b51e145e4ae96d0e9f62dda2d425",
+      "contracts": [
+        "auren.models/1"
+      ]
+    },
+    {
+      "id": "auren.official.permission",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.permission-1.0.0.auren-plugin",
+      "sha256": "ea97e262af870d923a191c687559d9fd73a5ca8470162a869d89788cfd8970bd",
+      "contracts": [
+        "auren.permission/1"
+      ]
+    },
+    {
+      "id": "auren.official.personality",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.personality-1.0.0.auren-plugin",
+      "sha256": "803c959a9222bef6a227a989221c46e002d0267190148d62f08034c091f97153",
+      "contracts": [
+        "auren.personality/1",
+        "auren.growth/1",
+        "auren.personality-dialogue/1",
+        "auren.personality-shaping/1",
+        "auren.personality-reasoning/1",
+        "auren.seed-interview/1"
+      ]
+    },
+    {
+      "id": "auren.official.plugins",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.plugins-1.0.0.auren-plugin",
+      "sha256": "957d00dac7745b6711aa5232748b1887d9b02982628e88e341fc2da1d8bea1e7",
+      "contracts": [
+        "auren.plugins/1"
+      ]
+    },
+    {
+      "id": "auren.official.reasoning",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.reasoning-1.0.0.auren-plugin",
+      "sha256": "3ab0b7d2d2c840562faa06ade3138b536f087abd6a662a68eadbfa220ebeb3ca",
+      "contracts": [
+        "auren.reasoning.prepare/1"
+      ]
+    },
+    {
+      "id": "auren.official.roaming",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.roaming-1.0.0.auren-plugin",
+      "sha256": "fda13b2c3dedfd57b2667c369dbd49b7ea641c34d65c02b6dd2e37d967291795",
+      "contracts": [
+        "auren.roaming/1"
+      ]
+    },
+    {
+      "id": "auren.official.security",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.security-1.0.0.auren-plugin",
+      "sha256": "962e7ad79536e2b638968fcbbf1603c9851d21c96043f96a7762da537903f0b2",
+      "contracts": [
+        "auren.security/1"
+      ]
+    },
+    {
+      "id": "auren.official.selfmod",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.selfmod-1.0.0.auren-plugin",
+      "sha256": "f39a727c7139cd028cdcc801d0f61dac794015fe667f5908a004e4d60c02c8c0",
+      "contracts": [
+        "auren.selfmod/1"
+      ]
+    },
+    {
+      "id": "auren.official.sharing",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.sharing-1.0.0.auren-plugin",
+      "sha256": "7c8d12912f74134179bea5ce3fcf5024ef70dc30470dcfed8717e5db8e54be4c",
+      "contracts": [
+        "auren.sharing/1"
+      ]
+    },
+    {
+      "id": "auren.official.social",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.social-1.0.0.auren-plugin",
+      "sha256": "b705f0906515e5eeaa3cd1fc6a0f293959becbee7783489e3a8c55f298c43a63",
+      "contracts": [
+        "auren.social/1"
+      ]
+    },
+    {
+      "id": "auren.official.speech",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.speech-1.0.0.auren-plugin",
+      "sha256": "ce80944f6aa06d33794c56e5c1e88e00b497db53619d57c7b0f9b67f191a7068",
+      "contracts": [
+        "auren.speech.transcribe/1"
+      ]
+    },
+    {
+      "id": "auren.official.task-context",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.task-context-1.0.0.auren-plugin",
+      "sha256": "fffd5e1c8002666727f57ccbf265852ed51d3e61142fb9fa14eeac9c5e02a8bd",
+      "contracts": [
+        "auren.task-context/1"
+      ]
+    },
+    {
+      "id": "auren.official.task-workflow",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.task-workflow-1.0.0.auren-plugin",
+      "sha256": "5ab89fca96162cd9947cdef5d211b4a3e90b876a0aa985ece1db24793b5ab33b",
+      "contracts": [
+        "auren.task-workflow/1",
+        "auren.flow.replay/1",
+        "auren.flow.validation/1"
+      ]
+    },
+    {
+      "id": "auren.official.views",
+      "version": "1.0.0",
+      "file": "packages/2026-11-13.1/auren.official.views-1.0.0.auren-plugin",
+      "sha256": "b33a1e7201c9793de703ba047d4d6a02e3978a22a6d6f3f8722e46bfc0c695a0",
+      "contracts": [
+        "auren.views/1"
+      ]
+    }
+  ],
+  "wheels": [],
+  "contains_user_data": false,
+  "contains_admin_keys": false,
+  "customer_installer": false
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "initialize",
+      "_initialize_modules",
+      "_persona_dependency",
+      "_verify_developer",
+      "manual_gate",
+      "set_developer",
+      "_admit_rule",
+      "_license_transport",
+      "_upload_event",
+      "_validate_claim",
+      "require_activated",
+      "conversations",
+      "_save_conversations",
+      "create_conversation",
+      "conversation",
+      "archive_conversation",
+      "send_message",
+      "create_agent_task",
+      "_agent_job",
+      "execute_tool",
+      "panel",
+      "resume_agent_task",
+      "tick",
+      "_archive_memory",
+      "_pause_agent_service",
+      "sync_management",
+      "_apply_management_command",
+      "quiesce",
+      "snapshot",
+      "begin_shutdown",
+      "close"
+    ]
+  },
+  "integration_required": true
+}

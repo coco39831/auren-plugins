@@ -1,0 +1,70 @@
+{
+  "format_version": 1,
+  "id": "auren.official.diary",
+  "name": "日記插件",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "閱讀、搜尋及整理這個 Agent 留下的日記；沿用原本的本機記憶儲存。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.diary/1",
+      "name": "留下與翻閱相處的日記",
+      "description": "將日記保存在本機，可搜尋過往、保留更正前的原文，並找回封存的故事。",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "health",
+        "invoke",
+        "status"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.memory/1",
+      "required": true
+    },
+    {
+      "contract": "auren.license/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "透過記憶服務讀寫此 Agent 的日記，不另建或搬動資料庫。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "diary",
+      "name": "日記",
+      "contract": "auren.diary/1",
+      "renderer": "builtin"
+    }
+  ]
+}

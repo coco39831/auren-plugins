@@ -1,0 +1,47 @@
+{
+  "format_version": 1,
+  "id": "auren.official.model-request",
+  "name": "模型請求組裝",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "將 Skill 的思考結果及路由結果組成正式模型請求。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "assemble",
+      "kind": "provider",
+      "contract": "auren.model.request/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false
+    }
+  ],
+  "requires": [],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方模型請求組裝器。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json"
+}

@@ -1,0 +1,80 @@
+{
+  "format_version": 1,
+  "id": "auren.official.roaming",
+  "name": "官方 roaming",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 roaming 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.roaming/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "facade": false,
+      "methods": [
+        "activity",
+        "adapter",
+        "configure",
+        "configure_user",
+        "grant_network",
+        "job",
+        "next_roaming_at",
+        "precondition",
+        "public_state",
+        "reader",
+        "schedule",
+        "search",
+        "start",
+        "state",
+        "stop_active",
+        "task_roam",
+        "task_web",
+        "tick"
+      ]
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "pages": [
+    {
+      "id": "roaming",
+      "name": "網路探索紀錄",
+      "contract": "auren.roaming/1",
+      "renderer": "builtin"
+    }
+  ]
+}

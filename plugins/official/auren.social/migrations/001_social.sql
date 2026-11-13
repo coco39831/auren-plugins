@@ -1,0 +1,17 @@
+CREATE TABLE profiles(principal TEXT PRIMARY KEY,payload TEXT NOT NULL,revision INTEGER NOT NULL,updated_at TEXT NOT NULL);
+CREATE TABLE rooms(id TEXT PRIMARY KEY,kind TEXT NOT NULL,owner TEXT NOT NULL,payload TEXT NOT NULL,revision INTEGER NOT NULL,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE TABLE members(room_id TEXT NOT NULL REFERENCES rooms(id),principal TEXT NOT NULL,read_seq INTEGER NOT NULL DEFAULT 0,archived INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(room_id,principal));
+CREATE TABLE room_states(room_id TEXT NOT NULL REFERENCES rooms(id),principal TEXT NOT NULL,read_seq INTEGER NOT NULL DEFAULT 0,archived INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(room_id,principal));
+CREATE TABLE messages(id TEXT PRIMARY KEY,room_id TEXT NOT NULL REFERENCES rooms(id),seq INTEGER NOT NULL,author TEXT NOT NULL,payload TEXT NOT NULL,revision INTEGER NOT NULL DEFAULT 1,withdrawn INTEGER NOT NULL DEFAULT 0,request_id TEXT NOT NULL,request_hash TEXT NOT NULL,created_at TEXT NOT NULL,updated_at TEXT NOT NULL,UNIQUE(room_id,seq),UNIQUE(author,request_id));
+CREATE INDEX messages_room ON messages(room_id,seq);
+CREATE TABLE posts(id TEXT PRIMARY KEY,author TEXT NOT NULL,payload TEXT NOT NULL,revision INTEGER NOT NULL DEFAULT 1,withdrawn INTEGER NOT NULL DEFAULT 0,request_id TEXT NOT NULL,request_hash TEXT NOT NULL,created_at TEXT NOT NULL,updated_at TEXT NOT NULL,UNIQUE(author,request_id));
+CREATE INDEX posts_time ON posts(created_at,id);
+CREATE TABLE comments(id TEXT PRIMARY KEY,post_id TEXT NOT NULL REFERENCES posts(id),author TEXT NOT NULL,payload TEXT NOT NULL,withdrawn INTEGER NOT NULL DEFAULT 0,request_id TEXT NOT NULL,request_hash TEXT NOT NULL,created_at TEXT NOT NULL,UNIQUE(author,request_id));
+CREATE TABLE reactions(kind TEXT NOT NULL,entity_id TEXT NOT NULL,principal TEXT NOT NULL,created_at TEXT NOT NULL,PRIMARY KEY(kind,entity_id,principal));
+CREATE TABLE activities(id TEXT PRIMARY KEY,room_id TEXT NOT NULL REFERENCES rooms(id),target TEXT NOT NULL,trigger_id TEXT,requested_by TEXT NOT NULL,payload TEXT NOT NULL,status TEXT NOT NULL,reply_id TEXT,error TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE INDEX activities_room ON activities(room_id,created_at);
+CREATE UNIQUE INDEX active_trigger ON activities(room_id,target,trigger_id) WHERE status IN ('queued','running','done') AND trigger_id IS NOT NULL;
+CREATE TABLE sessions(id TEXT PRIMARY KEY,room_id TEXT NOT NULL REFERENCES rooms(id),controller TEXT NOT NULL,turn_limit INTEGER,turns INTEGER NOT NULL DEFAULT 0,status TEXT NOT NULL,reason TEXT,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE UNIQUE INDEX running_session ON sessions(room_id) WHERE status='running';
+CREATE TABLE history(id TEXT PRIMARY KEY,kind TEXT NOT NULL,entity_id TEXT NOT NULL,actor TEXT NOT NULL,payload TEXT NOT NULL,created_at TEXT NOT NULL);
+PRAGMA user_version=1;

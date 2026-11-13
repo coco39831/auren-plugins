@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "add_knowledge",
+      "delete_knowledge",
+      "delete_tool",
+      "get_tool",
+      "health",
+      "overview",
+      "retrieve",
+      "status"
+    ]
+  },
+  "integration_required": true
+}

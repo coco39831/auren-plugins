@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "_apply_failure",
+      "activate",
+      "apply_failure",
+      "attempt",
+      "confirm_failure",
+      "diagnose_conflicts",
+      "fit",
+      "handoffs",
+      "handover",
+      "infer",
+      "infer_decision",
+      "key",
+      "maintenance",
+      "messages",
+      "packet",
+      "parent",
+      "parent_state",
+      "pause",
+      "persist_diagnosis",
+      "prepare_procedure",
+      "read",
+      "remember",
+      "save_attempt",
+      "save_parent",
+      "step_evidence",
+      "summarize",
+      "summary",
+      "terminal"
+    ]
+  },
+  "integration_required": true
+}

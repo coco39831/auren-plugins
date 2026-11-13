@@ -1,0 +1,72 @@
+{
+  "format_version": 1,
+  "id": "auren.official.models",
+  "name": "官方 models",
+  "version": "1.0.0",
+  "host_api": 1,
+  "description": "可替換的 models 能力，保留原有資料與操作語意。",
+  "author": "Auren",
+  "license": "Proprietary",
+  "runtime": {
+    "kind": "python",
+    "entrypoint": "src/main.py",
+    "platforms": [
+      "windows-x64"
+    ],
+    "access": "native",
+    "transport": "factory"
+  },
+  "exports": [
+    {
+      "id": "service",
+      "kind": "provider",
+      "contract": "auren.models/1",
+      "input_schema": "schemas/input.json",
+      "output_schema": "schemas/output.json",
+      "methods": [
+        "model_options",
+        "effective_model",
+        "model_configured",
+        "model",
+        "_model_connections",
+        "model_connections",
+        "_model_input",
+        "_model_signature",
+        "discover_model_connection",
+        "configure_model",
+        "select_primary_model",
+        "disable_model",
+        "global_settings",
+        "setup_status"
+      ],
+      "facade": true
+    }
+  ],
+  "requires": [
+    {
+      "contract": "auren.kernel.application/1",
+      "required": true
+    }
+  ],
+  "dependencies": [],
+  "permissions": [
+    {
+      "capability": "host.native",
+      "resources": [
+        "agent-data"
+      ],
+      "reason": "官方 Service Protocol 建構與既有資料處理；不是隔離程序。"
+    }
+  ],
+  "prompts": [],
+  "state": {
+    "schema_version": 1,
+    "migrations": []
+  },
+  "documentation": "README.md",
+  "tests": "tests/cases.json",
+  "setup": {
+    "instructions": "請選擇模型供應商與主要模型。你可以沿用全域連線，或為這個 Agent 個別設定。",
+    "status_contract": "auren.models/1"
+  }
+}

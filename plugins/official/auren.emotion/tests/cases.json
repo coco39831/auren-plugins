@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "kind": "native-service",
+  "exports": {
+    "service": [
+      "archive_profile",
+      "can_revisit_personality",
+      "commit_shaping",
+      "create_identity",
+      "expression",
+      "grow_toward_expectation",
+      "health",
+      "identity",
+      "on_event",
+      "personality_dialogue",
+      "personality_expectation",
+      "personality_goal",
+      "prepare_shaping",
+      "profile_versions",
+      "profiles",
+      "remember_personality_goal",
+      "require_shaping",
+      "research_guidance",
+      "research_state",
+      "restore_profile",
+      "save_personality_dialogue",
+      "save_profile",
+      "select_profile",
+      "set_growth",
+      "shaping_prepared",
+      "shaping_session",
+      "status",
+      "trauma_control",
+      "trauma_event",
+      "trauma_panel",
+      "trauma_state",
+      "creation_templates",
+      "register_identity"
+    ]
+  },
+  "integration_required": true
+}

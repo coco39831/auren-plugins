@@ -1,0 +1,1 @@
+{"type": "object", "additionalProperties": false, "required": ["messages"], "properties": {"messages": {"type": "array", "items": {"type": "object"}}}}
